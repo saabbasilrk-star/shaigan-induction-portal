@@ -2,7 +2,7 @@
 
 An online induction programme for newly appointed managers of **Shaigan Pharmaceuticals**. Each manager studies the modules of **their own team**, one module at a time, with quizzes and a final assessment. An **admin portal** shows every manager's progress live, across all teams.
 
-**Teams:** Khyber-1, Khyber-2, Khyber-3, Derma-1, Derma-2, Derma-3, Femicare-1, Femicare-2, Medix, Elantis and Optix. **Only Khyber-1 has content so far.** Managers of the other teams can register now, and they see a "modules are being prepared" page until their team's content is added.
+**Teams:** Khyber-1, Khyber-2, Khyber-3, Derma-1, Derma-2, Derma-3, Femicare-1, Femicare-2, Medix, Elantis and Optix. **Khyber-1 and Elantis have content so far.** Managers of the other teams can register now, and they see a "modules are being prepared" page until their team's content is added.
 
 - **Manager portal**: `index.html`
 - **Admin portal**: `admin.html` (linked in the manager portal's footer)
@@ -93,6 +93,22 @@ If you want to reuse the existing `johari-workshop` Firebase project, you can, b
 4. Update `contentVersion` in `js/content.js`, then commit and push. Derma-1 managers will see their modules at their next sign-in.
 
 Module ids (`m1`, `m2`, …) are saved in managers' progress, so don't rename a team's ids once managers have started.
+
+### Elantis content (Cardiometabolic Division)
+
+Built from `Induction Training Product Presentationsor managerial portal\elantis`. Taglines, strengths and claims follow the **Oct-26 literature**, where the older decks differ. 9 modules, 105 questions (10–13 per module):
+
+| # | Module |
+|---|---|
+| 1 | Welcome to Shaigan & the Elantis portfolio |
+| 2 | Science: diabetes mellitus |
+| 3 | Science: heart, kidneys & blood pressure |
+| 4 | Admit (sitagliptin ± metformin), "Together in Care" |
+| 5 | Emdagan / Emdagan Plus (empagliflozin ± metformin), "Stronger Control" |
+| 6 | Dilgem (glimepiride), "Desired Balance in Diabetes Management" |
+| 7 | Diasar (amlodipine + valsartan), "Dual Impact for Better Control" |
+| 8 | Bivolol (nebivolol), "Bring Back to the Normal" |
+| 9 | Xell (rosuvastatin) & cholesterol, "Protecting Every Heart" |
 
 ### Khyber-1 content
 
