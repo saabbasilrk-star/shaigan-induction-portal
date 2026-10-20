@@ -96,7 +96,7 @@ Module ids (`m1`, `m2`, …) are saved in managers' progress, so don't rename a 
 
 ### Elantis content (Cardiometabolic Division)
 
-Built from `Induction Training Product Presentationsor managerial portal\elantis`. Taglines, strengths and claims follow the **Oct-26 literature**, where the older decks differ. 9 modules, 105 questions (10–13 per module):
+Built from `Induction Training Product Presentations\for managerial portal\elantis`. Taglines, strengths and claims follow the **Oct-26 literature**, where the older decks differ. 9 modules, 105 questions (10–13 per module):
 
 | # | Module |
 |---|---|
