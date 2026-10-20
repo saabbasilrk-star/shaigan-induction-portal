@@ -305,6 +305,8 @@
     // Claim this window as the one recording progress (kept out of regular syncs
     // so it never overwrites a newer claim from another window).
     Store.updateManager(user.profile.empId, { activeSession: { id: SESSION_ID, at: Date.now(), device: deviceLabel() } }).catch(() => { });
+    // Managers registered before mobile sign-in existed get their number linked now.
+    linkPhone(user);
     if (unwatch) unwatch();
     unwatch = Store.watchManager(user.profile.empId, (data) => {
       if (!user) return;
@@ -413,12 +415,12 @@
           <p class="muted">Induction training for newly appointed managers of ${esc(CFG.companyName)}. You'll study the modules prepared for <strong>your team</strong>.</p>
           <h3>How it works</h3>
           <ol>
-            <li>Sign in with your Employee ID and select your <strong>team</strong> — you'll see your team's induction modules.</li>
+            <li>Sign in with your Employee ID (or your mobile number if you don't have one yet) and select your <strong>team</strong> — you'll see your team's induction modules.</li>
             <li>Modules open <strong>one at a time, in order</strong>. Each has a minimum <em>active</em> reading time and must be scrolled to the end.</li>
             <li>After each module, take its <strong>module quiz</strong> (${MQ.questions} questions). The next module unlocks once you've ${UNLOCK === "pass" ? "passed" : "attempted"} the quiz.</li>
             <li>The <strong>screen timer</strong> only runs while this tab is open, focused and you are active. It pauses after ${CFG.idleTimeoutSeconds}s of no activity.</li>
             <li>Take the <strong>final assessment</strong>: ${FQ.questionsPerAttempt} questions, ${FQ.timeLimitMinutes} minutes, pass mark ${FQ.passPercent}%, up to ${FQ.maxAttempts} attempts.</li>
-            <li>You can close the page any time — sign in again with your Employee ID and PIN to <strong>resume exactly where you left off</strong>${Store.mode === "cloud" ? ", on any device" : ""}.</li>
+            <li>You can close the page any time — sign in again with your Employee ID or mobile number and PIN to <strong>resume exactly where you left off</strong>${Store.mode === "cloud" ? ", on any device" : ""}.</li>
           </ol>
           <div class="notice warn"><strong>Important:</strong> if you attempt the final assessment without completing all reading${CFG.requireModuleQuizzesForFinal ? " and passing every module quiz" : ""}, the attempt is recorded as <strong>FAIL</strong> regardless of your score.</div>
           ${Store.error ? `<div class="notice bad small">${esc(Store.error)}</div>` : ""}
@@ -431,7 +433,9 @@
     loginShell(`
       <h2>Sign in</h2>
       <form id="idForm" autocomplete="off">
-        <div class="field"><label for="fEmp">Employee ID</label><input id="fEmp" type="text" required maxlength="30" autocapitalize="characters"></div>
+        <div class="field"><label for="fEmp">Employee ID or Mobile Number</label>
+          <input id="fEmp" type="text" required maxlength="30" autocapitalize="characters" placeholder="e.g. 10234 or 0300-1234567">
+          <div class="small muted" style="margin-top:4px">Haven't received your Employee ID yet? Enter your mobile number instead.</div></div>
         <button class="btn" type="submit" id="idBtn">Continue</button>
         <p class="small muted" style="margin-top:12px">New and returning managers both start here.</p>
       </form>`);
@@ -442,22 +446,30 @@
       const raw = document.getElementById("fEmp").value.trim();
       if (raw.includes("@")) {
         return modal("That looks like an email address",
-          `<p>Managers sign in here with their <strong>Employee ID</strong>.</p>
+          `<p>Managers sign in here with their <strong>Employee ID</strong> or <strong>mobile number</strong>.</p>
            <p>Administrators: sign in with your email and password on the <a href="admin.html">Admin portal</a>.</p>`, [{ label: "OK" }]);
       }
-      const id = raw.toUpperCase().replace(/[\/\s]+/g, "-");
+      // A mobile number (any common format) is used in its canonical form 03XXXXXXXXX.
+      const phoneKey = Store.normPhone(raw);
+      const id = phoneKey || raw.toUpperCase().replace(/[\/\s]+/g, "-");
       if (!id) return;
       const btn = document.getElementById("idBtn");
       btn.disabled = true; btn.textContent = "Checking…";
       try {
         await Store.ensureManagerAuth();
-        const { rec, offline } = await loadRecord(id);
+        let { rec, offline } = await loadRecord(id);
+        // A mobile number may belong to a manager who registered with an Employee ID.
+        if (!rec && !offline && phoneKey) {
+          let empId = null;
+          try { empId = await Store.getAlias(phoneKey); } catch { /* alias lookup unavailable */ }
+          if (empId) ({ rec, offline } = await loadRecord(empId));
+        }
         if (rec) return rec.pinHash ? renderPin(rec) : renderSetPin(rec);
         if (offline) {
           btn.disabled = false; btn.textContent = "Continue";
           return modal("No connection", "<p>We couldn't reach the server to look up your record. Check your internet connection and try again.</p>", [{ label: "OK" }]);
         }
-        renderRegister(id);
+        renderRegister(id, !!phoneKey);
       } catch (err) {
         btn.disabled = false; btn.textContent = "Continue";
         const setup = /configuration-not-found|operation-not-allowed|admin-restricted-operation/.test(err.code || err.message || "");
@@ -476,11 +488,34 @@
 
   // ---- profile fields (shared by sign-up and "complete your profile")
   const town = (p) => p.baseTown || p.area || "";
-  const phoneOk = (v) => /^(92|0)?3\d{9}$/.test(v.replace(/\D/g, ""));
+  const phoneOk = (v) => !!Store.normPhone(v);
   const emailOk = (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
   const profileIncomplete = (p) => !(p.name && Store.isKnownTeam(p.team) && town(p) && p.phone && p.email);
 
-  function profileFieldsHtml(p) {
+  /** Employee ID of another manager already using this mobile number, or null. */
+  async function phoneOwner(phone, selfId) {
+    const key = Store.normPhone(phone);
+    if (!key) return null;
+    try { if (key !== selfId && await Store.getManager(key)) return key; } catch { }
+    try {
+      const empId = await Store.getAlias(key);
+      if (empId && empId !== selfId && await Store.getManager(empId)) return empId;
+    } catch { }
+    return null;
+  }
+  const phoneTaken = (owner) => modal("This mobile number is already registered",
+    `<p>Another manager${Store.isPhoneId(owner) ? "" : ` (Employee ID <strong>${esc(owner)}</strong>)`} is already registered with this mobile number.</p>
+     <p>If this is you, go back and sign in with your mobile number${Store.isPhoneId(owner) ? "" : " or Employee ID"}. Otherwise please check the number or contact your administrator.</p>`,
+    [{ label: "OK" }]);
+
+  /** Lets a manager registered with an Employee ID also sign in with their mobile number. */
+  async function linkPhone(rec) {
+    const key = Store.normPhone(rec.profile.phone);
+    if (!key || key === rec.profile.empId) return;
+    try { if (!(await Store.getAlias(key))) await Store.setAlias(key, rec.profile.empId); } catch { /* best effort */ }
+  }
+
+  function profileFieldsHtml(p, phoneLocked) {
     p = p || {};
     // A manager's team decides their modules, so it can't be changed once set.
     const locked = Store.isKnownTeam(p.team);
@@ -493,7 +528,8 @@
         </select>
         <div class="small muted" style="margin-top:4px">${locked ? "Your team is fixed — contact the administrator if it's wrong." : "Your induction modules depend on your team, so choose carefully — it can't be changed later."}</div></div>
       <div class="field"><label for="fTown">Base town</label><input id="fTown" type="text" required maxlength="60" value="${esc(town(p))}"></div>
-      <div class="field"><label for="fPhone">Cell number</label><input id="fPhone" type="tel" required maxlength="20" inputmode="tel" autocomplete="tel" placeholder="03XX-XXXXXXX" value="${esc(p.phone || "")}"></div>
+      <div class="field"><label for="fPhone">Cell number</label><input id="fPhone" type="tel" required maxlength="20" inputmode="tel" autocomplete="tel" placeholder="03XX-XXXXXXX" value="${esc(p.phone || "")}" ${phoneLocked ? "readonly" : ""}>
+        ${phoneLocked ? `<div class="small muted" style="margin-top:4px">This is your sign-in ID, so it can't be changed here.</div>` : ""}</div>
       <div class="field"><label for="fEmail">Email address</label><input id="fEmail" type="email" required maxlength="100" autocomplete="email" placeholder="name@example.com" value="${esc(p.email || "")}"></div>`;
   }
 
@@ -522,7 +558,7 @@
       <h2>Complete your profile</h2>
       <p class="small muted">${esc(rec.profile.empId)} — we now ask every manager for these details. Your progress is safe.</p>
       <form id="cpForm" autocomplete="off" novalidate>
-        ${profileFieldsHtml(rec.profile)}
+        ${profileFieldsHtml(Store.isPhoneId(rec.profile.empId) ? Object.assign({ phone: rec.profile.empId }, rec.profile) : rec.profile, Store.isPhoneId(rec.profile.empId))}
         <button class="btn" type="submit" id="cpBtn">Save &amp; continue</button>
       </form>`);
     document.getElementById("cpForm").onsubmit = async (e) => {
@@ -530,18 +566,23 @@
       const p = readProfileFields();
       if (!p) return;
       const btn = document.getElementById("cpBtn"); btn.disabled = true;
+      const owner = await phoneOwner(p.phone, rec.profile.empId);
+      if (owner) { btn.disabled = false; return phoneTaken(owner); }
       rec.profile = Object.assign({}, rec.profile, p, { profileUpdatedAt: Date.now() });
       try { await Store.updateManager(rec.profile.empId, { profile: rec.profile }); } catch { /* synced later with the rest */ }
+      await linkPhone(rec);
       beginSession(rec, false);
     };
   }
 
-  function renderRegister(id) {
+  function renderRegister(id, viaPhone) {
     loginShell(`
       <h2>Create your profile</h2>
-      <p class="small muted">Employee ID <strong>${esc(id)}</strong> is new. <a href="#/" id="backLink">Use a different ID</a></p>
+      <p class="small muted">${viaPhone
+        ? `Mobile number <strong>${esc(id)}</strong> is new — you'll use it to sign in.`
+        : `Employee ID <strong>${esc(id)}</strong> is new.`} <a href="#/" id="backLink">Use a different ID</a></p>
       <form id="regForm" autocomplete="off" novalidate>
-        ${profileFieldsHtml()}
+        ${profileFieldsHtml(viaPhone ? { phone: id } : null, viaPhone)}
         <div class="field"><label for="fPin">Choose a PIN (4–6 digits)</label><input id="fPin" type="password" inputmode="numeric" required maxlength="6"></div>
         <div class="field"><label for="fPin2">Confirm PIN</label><input id="fPin2" type="password" inputmode="numeric" required maxlength="6"></div>
         <p class="small muted">You'll use this PIN to resume your induction later. Don't share it.</p>
@@ -558,8 +599,11 @@
       if (pin !== document.getElementById("fPin2").value.trim()) return modal("PINs don't match", "<p>Please re-enter the same PIN twice.</p>", [{ label: "OK" }]);
       const btn = document.getElementById("regBtn"); btn.disabled = true; btn.textContent = "Creating…";
       try {
+        const owner = await phoneOwner(profile.phone, id);
+        if (owner) { btn.disabled = false; btn.textContent = "Start induction"; return phoneTaken(owner); }
         const rec = newRecord(Object.assign({ empId: id, createdAt: Date.now() }, profile), await Store.hashPin(id, pin));
         await Store.createManager(JSON.parse(JSON.stringify(rec)));
+        await linkPhone(rec);
         beginSession(rec, true);
       } catch (err) {
         btn.disabled = false; btn.textContent = "Start induction";

@@ -327,7 +327,7 @@
         <thead><tr>${COLS.map(([k, l]) => `<th data-sort="${k}" class="${ui.sort === k ? "sorted" : ""}" tabindex="0">${l}${ui.sort === k ? (ui.dir > 0 ? " ▲" : " ▼") : ""}</th>`).join("")}<th>Now</th></tr></thead>
         <tbody>
         ${rows.map((s) => `<tr class="clickable" data-id="${esc(s.id)}" tabindex="0">
-          <td><strong>${esc(s.name)}</strong><div class="small muted">${esc(s.id)}</div></td>
+          <td><strong>${esc(s.name)}</strong><div class="small muted">${esc(s.id)}${Store.isPhoneId(s.id) ? ` <span class="badge neutral" title="Registered with a mobile number (no Employee ID)">mobile ID</span>` : ""}</div></td>
           <td>${esc(s.team) || "—"}<div class="small muted">${esc(s.area)}</div></td>
           <td class="small">${s.phone ? esc(s.phone) : `<span class="muted">—</span>`}<div class="muted">${esc(s.email)}</div></td>
           <td>${s.nMods ? `<div class="mini-progress"><span style="width:${(s.modulesDone / s.nMods) * 100}%"></span></div>${s.modulesDone}/${s.nMods}` : `<span class="muted">—</span>`}</td>
@@ -471,7 +471,7 @@
           <div>
             <a class="small" href="#/">← All managers</a>
             <h1 style="margin-top:6px">${esc(s.name)}</h1>
-            <p class="muted">${esc(s.id)} · ${esc(s.team || "—")} · ${esc(s.area)} · enrolled ${fmtDate(s.createdAt)}</p>
+            <p class="muted">${Store.isPhoneId(s.id) ? "Mobile ID " : "Employee ID "}${esc(s.id)} · ${esc(s.team || "—")} · ${esc(s.area)} · enrolled ${fmtDate(s.createdAt)}</p>
             <p class="small">${s.phone ? `📞 <a href="tel:${esc(s.phone.replace(/[^\d+]/g, ""))}">${esc(s.phone)}</a>` : `<span class="muted">No cell number yet</span>`}
               &nbsp;·&nbsp; ${s.email ? `✉ <a href="mailto:${esc(s.email)}">${esc(s.email)}</a>` : `<span class="muted">No email yet</span>`}</p>
           </div>
@@ -557,7 +557,12 @@
       [{ label: "Cancel", cls: "ghost" }, { label: "Delete permanently", cls: "danger", keepOpen: true, onClick: () => {
         if (document.getElementById("confirmId").value.trim().toUpperCase() !== s.id.toUpperCase()) { document.getElementById("confirmId").focus(); return false; }
         document.getElementById("modal").hidden = true;
-        act(() => Store.deleteManager(s.id), "Record deleted.").then(() => { location.hash = "#/"; });
+        act(async () => {
+          await Store.deleteManager(s.id);
+          // Free the mobile number so it can be registered again.
+          const key = Store.normPhone(s.phone);
+          if (key && key !== s.id) { try { if ((await Store.getAlias(key)) === s.id) await Store.deleteAlias(key); } catch { } }
+        }, "Record deleted.").then(() => { location.hash = "#/"; });
         return false;
       } }]);
   }

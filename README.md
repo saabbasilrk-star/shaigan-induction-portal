@@ -13,7 +13,7 @@ It's a static site (HTML/CSS/JS, no build step), so you can host it on **GitHub 
 
 | Feature | How it works |
 |---|---|
-| Sign-in | Employee ID plus a 4–6 digit PIN that the manager chooses the first time. The PIN stops anyone else from opening a manager's induction. Admins can reset it. |
+| Sign-in | **Employee ID or mobile number** plus a 4–6 digit PIN. A manager without an Employee ID registers with their mobile number, which becomes their ID. Managers registered with an Employee ID can also sign in with their registered mobile number. Each mobile number can belong to only one manager, and any format works (`0300-1234567`, `+92 300 1234567`). The rest of the sign-in uses that the manager chooses the first time. The PIN stops anyone else from opening a manager's induction. Admins can reset it. |
 | Profile | At sign-up: **Name, Team** (dropdown of the 11 teams, fixed once chosen), **Base Town, Cell Number** (Pakistani mobile, e.g. 0300-1234567) **and Email**, all validated. Managers registered before these fields existed are asked for the missing details at their next sign-in. |
 | Exact resume | Closing the page, signing out or switching device, then signing back in, returns the manager to **the same module and scroll position**. A quiz in progress resumes on **the same question with all answers kept**. Progress is saved locally every few seconds, synced to the cloud every `syncSeconds`, and saved immediately when the page is hidden or closed. |
 | One window at a time | If the induction is opened in a second window or device, the first one stops recording and offers "Continue in this window". This stops two copies overwriting each other's screen time. |
@@ -70,6 +70,10 @@ Local mode is fine for trying the portal out. **To use it with your team, set up
          allow get: if request.auth != null;          // a manager loads their own record by ID
          allow list: if isAdmin();                    // only admins can see everyone
          allow create, update: if request.auth != null;
+         allow delete: if isAdmin();
+       }
+       match /k1_ids/{phone} {                         // mobile number -> Employee ID
+         allow get, create: if request.auth != null;  // create-only: a link is never overwritten
          allow delete: if isAdmin();
        }
      }

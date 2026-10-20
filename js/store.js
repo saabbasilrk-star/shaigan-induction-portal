@@ -13,6 +13,9 @@
   "use strict";
 
   const COLLECTION = "k1_managers";
+  // Alias collection: mobile number -> Employee ID, so managers registered with an
+  // Employee ID can also sign in with their mobile number. Create-only for managers.
+  const ALIASES = "k1_ids";
   const P = "k1i:";
   const ls = {
     get(k, d) { try { const v = localStorage.getItem(P + k); return v ? JSON.parse(v) : d; } catch { return d; } },
@@ -104,6 +107,26 @@
       if (mode === "cloud") await db.collection(COLLECTION).doc(id).delete();
       else ls.del("db:" + id);
     },
+
+    /* ---------- mobile-number aliases ---------- */
+    /** Employee ID registered for this (normalised) mobile number, or null. */
+    async getAlias(phoneKey) {
+      if (mode === "cloud") {
+        const s = await db.collection(ALIASES).doc(phoneKey).get();
+        return s.exists ? s.data().empId : null;
+      }
+      const a = ls.get("alias:" + phoneKey, null);
+      return a ? a.empId : null;
+    },
+    /** Links a mobile number to an Employee ID (never overwrites an existing link). */
+    async setAlias(phoneKey, empId) {
+      if (mode === "cloud") { await db.collection(ALIASES).doc(phoneKey).set({ empId, at: Date.now() }); return; }
+      if (!ls.get("alias:" + phoneKey, null)) ls.set("alias:" + phoneKey, { empId, at: Date.now() });
+    },
+    async deleteAlias(phoneKey) {
+      if (mode === "cloud") await db.collection(ALIASES).doc(phoneKey).delete();
+      else ls.del("alias:" + phoneKey);
+    },
     /** Live updates for one manager (used to pick up admin changes). Returns unsubscribe. */
     watchManager(id, cb) {
       if (mode === "cloud") return db.collection(COLLECTION).doc(id).onSnapshot((s) => cb(s.exists ? s.data() : null), () => { });
@@ -172,6 +195,14 @@
   Store.loadAllTeamContent = () => Promise.all(Store.teamNames().filter(Store.teamHasContent).map((n) => Store.loadTeamContent(n).catch(() => null)));
 
   /* ---------- helpers shared by both portals ---------- */
+  /** Pakistani mobile number in canonical form "03XXXXXXXXX", or null if it isn't one. */
+  Store.normPhone = function (v) {
+    const d = String(v || "").replace(/\D/g, "");
+    const m = d.match(/^(?:0092|92|0)?(3\d{9})$/);
+    return m ? "0" + m[1] : null;
+  };
+  /** True if a sign-in ID is a mobile number rather than an Employee ID. */
+  Store.isPhoneId = (id) => /^03\d{9}$/.test(String(id || ""));
   Store.requiredSeconds = function (modules, config) {
     const out = {};
     modules.forEach((m) => {
