@@ -690,8 +690,11 @@
           <strong>Your team's induction modules are being prepared.</strong><br>
           The ${esc(t)} programme isn't published yet. Your profile is saved — sign in again with your Employee ID and PIN once your manager or the training team tells you it's available.
         </div>
-        <p class="small muted">Registered ${fmtDate(user.profile.createdAt)} · Employee ID ${esc(user.profile.empId)}</p>
+        <div class="btn-row"><button class="btn" id="recheckBtn">Check again</button></div>
+        <p class="small muted">Registered ${fmtDate(user.profile.createdAt)} · ${Store.isPhoneId(user.profile.empId) ? "Mobile ID" : "Employee ID"} ${esc(user.profile.empId)}</p>
       </section>`;
+    // Reloading fetches the latest published team list and modules.
+    document.getElementById("recheckBtn").onclick = () => { saveUser(true); setTimeout(() => location.reload(), 300); };
   }
 
   function renderDashboard() {

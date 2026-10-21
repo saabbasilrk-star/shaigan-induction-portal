@@ -183,7 +183,8 @@
     if (!loading[name]) {
       loading[name] = new Promise((resolve, reject) => {
         const s = document.createElement("script");
-        s.src = def.content + "?v=" + (window.CONFIG.contentVersion || "");
+        // contentVersion + a 5-minute stamp: new team content reaches every device within minutes.
+        s.src = def.content + "?v=" + (window.CONFIG.contentVersion || "") + "-" + Math.floor(Date.now() / 300000);
         s.onload = () => resolve(reg[name] || null);
         s.onerror = () => { delete loading[name]; reject(new Error("Couldn't load the modules for " + name + ". Check your connection and reload.")); };
         document.head.appendChild(s);
