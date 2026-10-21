@@ -202,14 +202,22 @@ const modules = [
     title: "Esso 40 Capsule (Esomeprazole 40 mg)",
     summary: "Strong, prolonged acid control — profile, indications, dosing and competitive edge.",
     body: `
-      <figure><img src="assets/img/esso40-dropcard.jpg" alt="Esso 40 dropcard: strong and prolonged acid control, faster healing in GERD, pH above 4, once daily, triple-layer packaging" loading="lazy">
-      <figcaption>Esso 40 dropcard — "Healthy Life, Healthy Stomach"</figcaption></figure>
+      <figure><img src="assets/img/esso40-literature.jpg" alt="Esso literature: Healthy Life Healthy Stomach — Pioneer in Pelletization; uniform pellets, precise dosing, quick dissolution; Esso 20 and Esso 40, tamper-proof pack" loading="lazy">
+      <figcaption>Esso — "Healthy Life, Healthy Stomach"</figcaption></figure>
+
+      <h3>Pioneer in Pelletization</h3>
+      <p>Esso capsules contain esomeprazole <strong>pellets</strong> made in Shaigan's <strong>in-house pelletization facility</strong>:</p>
+      <ul>
+        <li><strong>Uniform size of pellets</strong> (standardised mesh size)</li>
+        <li><strong>Precise dosing guaranteed</strong></li>
+        <li><strong>Quick dissolution, rapid absorption</strong></li>
+      </ul>
 
       <h3>Product profile</h3>
       <table>
         <tr><th>Item</th><th>Esso 40</th></tr>
         <tr><td>Composition</td><td>Esomeprazole 40 mg capsule (esomeprazole magnesium trihydrate pellets)</td></tr>
-        <tr><td>Pack</td><td>1 × 14 capsules, triple-layer packaging</td></tr>
+        <tr><td>Pack</td><td>1 × 14 capsules, tamper-proof pack</td></tr>
         <tr><td>Category</td><td>Anti-secretory, proton pump inhibitor (PPI)</td></tr>
         <tr><td>Mode of action</td><td>Suppresses HCl secretion by specific inhibition of H⁺/K⁺-ATPase in the gastric parietal cell — blocks the <strong>final step</strong> of acid secretion</td></tr>
         <tr><td>T-max</td><td>1.5 hours</td></tr>
@@ -268,7 +276,7 @@ const modules = [
         <li><strong>Faster healing rates in GERD</strong></li>
         <li>Maintains <strong>intragastric pH &gt; 4 for longer duration</strong></li>
         <li><strong>Patient compliance with once-daily dosage</strong></li>
-        <li><strong>Triple-layer packaging</strong> — PVC, Tropical Alu and Alu-Alu — offers long-lasting protection of the capsules</li>
+        <li><strong>Pioneer in Pelletization</strong> — uniform pellets from Shaigan's in-house facility for precise dosing, quick dissolution and rapid absorption</li>
       </ul>
     `
   },
@@ -643,8 +651,8 @@ const questions = [
     options: ["40 mg once daily for 4–8 weeks", "40 mg three times daily for 1 week", "40 mg once weekly", "40 mg once daily for 1 year"], answer: 0 },
   { module: "m4", q: "Which is a key Esso 40 detailing message?",
     options: ["Twice-daily dosing for faster action", "Maintains intragastric pH > 4 for longer duration with once-daily dosage", "Blocks dopamine receptors", "No need to take before meals"], answer: 1 },
-  { module: "m4", q: "Esso 40's triple-layer packaging consists of…",
-    options: ["Glass, foil and paper", "PVC, Tropical Alu and Alu-Alu", "Plastic bottle and cap", "Paper sachet"], answer: 1 },
+  { module: "m4", q: "What does \"Pioneer in Pelletization\" on the Esso literature refer to?",
+    options: ["A new tablet coating", "Shaigan's in-house facility making uniform esomeprazole pellets for precise dosing and quick dissolution", "An injection device", "A once-weekly capsule"], answer: 1 },
 
   /* ---- m5 Esso-NS */
   { module: "m5", q: "Esso-NS combines which two molecules?",
