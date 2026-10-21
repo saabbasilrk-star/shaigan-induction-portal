@@ -1131,6 +1131,7 @@
     if (!a) return go("#/");
     app.innerHTML = `
       <section class="certificate">
+        <img class="cert-logo" src="assets/img/shaigan-logo.png" alt="Shaigan Pharmaceuticals logo">
         <div class="small muted">${esc(CFG.companyName)}</div>
         <h2>Certificate of Completion</h2>
         <p>This certifies that</p>
