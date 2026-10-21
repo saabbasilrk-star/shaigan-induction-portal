@@ -131,7 +131,7 @@ Built from `Induction Training Product Presentations\for managerial portal\elant
 
 ### Khyber-1 content
 
-The content comes from `Induction Training Product Presentations\Khyber - 1` and covers **Esso 40 Capsule, Esso-NS, Mionex Tablet, Pegalin-CR and Tepride**.
+The content comes from `Induction Training Product Presentations\Khyber - 1`. Themes, slogans and claims follow the current literature in `Literatures\Khyber-1` (Esso 40 "Healthy Life, Healthy Stomach", Esso-NS "ONE + ONE = No. 1", Mionex "Ultimate Care", Pegalin-CR "Challenge Resolved", Tepride "The Pride of Nation"). It covers **Esso 40 Capsule, Esso-NS, Mionex Tablet, Pegalin-CR and Tepride**.
 
 | # | Module |
 |---|---|

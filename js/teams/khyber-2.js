@@ -342,7 +342,7 @@ const modules = [
       <figcaption>Esso — "Healthy Life, Healthy Stomach"</figcaption></figure>
 
       <h3>Strengths</h3>
-      <p><strong>Esso 20</strong> (esomeprazole 20 mg) and <strong>Esso 40</strong> (40 mg) capsules, 1 × 14, in a <strong>tamper-proof</strong> pack.
+      <p><strong>Esso 20</strong> (esomeprazole 20 mg) and <strong>Esso 40</strong> (40 mg) capsules, 1 × 14, in <strong>triple-layer, tamper-proof packaging</strong>.
       Khyber-2 promotes <strong>Esso-20</strong>. Theme: <em>"Healthy Life, Healthy Stomach."</em></p>
 
       <h3>Pioneer in Pelletization</h3>
@@ -610,7 +610,7 @@ const questions = [
   { module: "m7", q: "Prevention of NSAID-induced ulcer with Esso 20 is…",
     options: ["20 mg once daily for 6 months", "20 mg once daily for 3 days", "Not an indication", "40 mg three times daily"], answer: 0 },
   { module: "m7", q: "What is the Esso pack?",
-    options: ["1 × 14 capsules, tamper-proof", "3 × 10 tablets", "Syrup 120 ml", "Single injection vial only"], answer: 0 },
+    options: ["1 × 14 capsules, triple-layer tamper-proof packaging", "3 × 10 tablets", "Syrup 120 ml", "Single injection vial only"], answer: 0 },
 
   /* ---- m8 Zeespa */
   { module: "m8", q: "Mebeverine is a…",

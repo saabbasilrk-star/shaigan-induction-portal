@@ -3,7 +3,9 @@
    --------------------------------------------------------------------------
    Source: "Induction Training Product Presentations\Khyber - 1"
    (Esso-NS.pptx, ESSO.ppt, Mionex.pptx, Pegalin CR training.pptx,
-   Tepride training.pptx, pain killers.docx, detailing aids and dropcards).
+   Tepride training.pptx, pain killers.docx) and the current literature in
+   "1. Shaigan Pharma\Literatures\Khyber-1" (Oct-26) — themes, slogans and claims
+   follow that literature.
    Khyber-1 portfolio: Esso 40mg Capsule, Esso-NS, Mionex Tablet,
    Pegalin-CR Tablet, Tepride Tablet.
 
@@ -27,8 +29,8 @@ const modules = [
       field, so you must know each product better than anyone in your team: its composition, how it
       works, who it is for, how it is dosed and why a doctor should choose it over the competition.</p>
 
-      <p>This induction is built entirely on the official Khyber-1 product training presentations and
-      detailing literature. Read every module carefully — the assessment at the end is drawn from all of them.</p>
+      <p>This induction is built entirely on the official Khyber-1 product training presentations and the
+      current Khyber-1 literature (themes, slogans and claims follow the latest literature). Read every module carefully — the assessment at the end is drawn from all of them.</p>
 
       <h3>The Khyber-1 portfolio</h3>
       <table>
@@ -48,12 +50,13 @@ const modules = [
         <li><strong>Mionex</strong> is the team's anti-infective for chest physicians, ENT, GPs, surgeons and diabetic-foot clinics.</li>
       </ul>
 
-      <h3>The brand taglines</h3>
+      <h3>The brand themes (current literature)</h3>
       <ul>
-        <li>Esso — <em>"Healthy Life, Healthy Stomach"</em></li>
+        <li>Esso 40 — <em>"Healthy Life, Healthy Stomach"</em> · Pioneer in Pelletization</li>
+        <li>Esso-NS — <em>"ONE + ONE = No. 1"</em> · No. 1 Brand in Quality, Branding &amp; Growth</li>
         <li>Mionex — <em>"Ultimate Care"</em></li>
         <li>Pegalin-CR — <em>"Challenge Resolved"</em></li>
-        <li>Tepride — <em>"Happy Tummy"</em></li>
+        <li>Tepride — <em>"The Pride of Nation"</em></li>
       </ul>
 
       <h3>How this induction works</h3>
@@ -200,10 +203,12 @@ const modules = [
   {
     id: "m4",
     title: "Esso 40 Capsule (Esomeprazole 40 mg)",
-    summary: "Strong, prolonged acid control — profile, indications, dosing and competitive edge.",
+    summary: "Healthy Life, Healthy Stomach — strong, prolonged acid control from the Pioneer in Pelletization.",
     body: `
-      <figure><img src="assets/img/esso40-literature.jpg" alt="Esso literature: Healthy Life Healthy Stomach — Pioneer in Pelletization; uniform pellets, precise dosing, quick dissolution; Esso 20 and Esso 40, tamper-proof pack" loading="lazy">
-      <figcaption>Esso — "Healthy Life, Healthy Stomach"</figcaption></figure>
+      <figure><img src="assets/img/khyber-1/esso40.jpg" alt="Esso 40 literature: Healthy Life Healthy Stomach — Pioneer in Pelletization; uniform pellets, precise dosing, quick dissolution; strong and prolonged acid control, faster GERD healing, pH above 4 for longer; triple-layer tamper-proof packaging" loading="lazy">
+      <figcaption>Esso 40 — "Healthy Life, Healthy Stomach"</figcaption></figure>
+      <p>Theme: <em>"Healthy Life, Healthy Stomach"</em> — the literature pairs Esso with a healthy lifestyle: regular, balanced
+      meals, exercise, good sleep and a healthy stomach.</p>
 
       <h3>Pioneer in Pelletization</h3>
       <p>Esso capsules contain esomeprazole <strong>pellets</strong> made in Shaigan's <strong>in-house pelletization facility</strong>:</p>
@@ -217,7 +222,7 @@ const modules = [
       <table>
         <tr><th>Item</th><th>Esso 40</th></tr>
         <tr><td>Composition</td><td>Esomeprazole 40 mg capsule (esomeprazole magnesium trihydrate pellets)</td></tr>
-        <tr><td>Pack</td><td>1 × 14 capsules, tamper-proof pack</td></tr>
+        <tr><td>Pack</td><td>1 × 14 capsules in <strong>triple-layer, tamper-proof packaging</strong></td></tr>
         <tr><td>Category</td><td>Anti-secretory, proton pump inhibitor (PPI)</td></tr>
         <tr><td>Mode of action</td><td>Suppresses HCl secretion by specific inhibition of H⁺/K⁺-ATPase in the gastric parietal cell — blocks the <strong>final step</strong> of acid secretion</td></tr>
         <tr><td>T-max</td><td>1.5 hours</td></tr>
@@ -270,13 +275,13 @@ const modules = [
         <tr><td>H. pylori ulcer</td><td>40 mg once daily for 1 week <strong>plus clarithromycin 500 mg b.i.d. plus amoxicillin 1 g b.i.d.</strong> for 1 week — no follow-up therapy</td></tr>
       </table>
 
-      <h3>What Esso 40 offers (key detailing messages)</h3>
+      <h3>Esso 40 key messages (current literature)</h3>
       <ul>
-        <li><strong>Strong and prolonged acid control</strong> in patients with acid peptic disorders (APDs)</li>
+        <li><strong>Strong &amp; prolonged acid control</strong> in patients with acid peptic disorders (APDs)</li>
         <li><strong>Faster healing rates in GERD</strong></li>
-        <li>Maintains <strong>intragastric pH &gt; 4 for longer duration</strong></li>
-        <li><strong>Patient compliance with once-daily dosage</strong></li>
-        <li><strong>Pioneer in Pelletization</strong> — uniform pellets from Shaigan's in-house facility for precise dosing, quick dissolution and rapid absorption</li>
+        <li><strong>Maintenance of intragastric pH &gt; 4 for longer duration</strong></li>
+        <li><strong>Pioneer in Pelletization</strong> — uniform pellets from Shaigan's in-house facility: precise dosing guaranteed, quick dissolution and rapid absorption</li>
+        <li><strong>Triple-layer, tamper-proof packaging</strong></li>
       </ul>
     `
   },
@@ -285,12 +290,13 @@ const modules = [
   {
     id: "m5",
     title: "Esso-NS (Naproxen Sodium + Esomeprazole)",
-    summary: "The NSAID patients need, without the ulcer risk they fear.",
+    summary: "ONE + ONE = No. 1 — the No. 1 brand in quality, branding & growth.",
     body: `
-      <figure><img src="assets/img/esso-ns-packs.jpg" alt="Esso-NS key advantages slide with 500/20 Forte and 375/20 packs" loading="lazy">
-      <figcaption>Esso-NS 500/20 Forte and 375/20</figcaption></figure>
+      <figure><img src="assets/img/khyber-1/esso-ns.jpg" alt="Esso-NS literature: No. 1 brand in quality, branding and growth; excellent GI protection, up to 63% improvement in quality of life, better compliance; FDA approved; 1 tablet twice daily" loading="lazy">
+      <figcaption>Esso-NS — "ONE + ONE = No. 1"</figcaption></figure>
 
-      <p><strong>Positioning:</strong> <em>"The pain relief NSAID patients need, without the ulcer risk they fear."</em></p>
+      <p><strong>Theme:</strong> <em>"ONE + ONE = No. 1"</em> — one NSAID (naproxen) plus one PPI (esomeprazole) in a single
+      tablet makes the No. 1 brand.</p>
 
       <h3>What patients need</h3>
       <p>Patients with chronic arthritis need <strong>an effective NSAID + GI safety</strong>. Esso-NS combines
@@ -301,6 +307,7 @@ const modules = [
         <li><strong>Esso-NS 375/20</strong> — naproxen 375 mg + esomeprazole 20 mg</li>
         <li><strong>Esso-NS 500/20 Forte</strong> — naproxen 500 mg + esomeprazole 20 mg</li>
       </ul>
+      <p>Packs of 4 × 7 tablets.</p>
 
       <h3>The sequential-delivery tablet — the key technology</h3>
       <p>Each tablet combines an <strong>immediate-release esomeprazole magnesium outer layer</strong> with an
@@ -323,8 +330,8 @@ const modules = [
 
       <h3>Dosage &amp; administration</h3>
       <ul>
+        <li><strong>1 tablet twice daily</strong> (current literature).</li>
         <li>Best taken on an <strong>empty stomach, about 30 minutes before a meal</strong>.</li>
-        <li>Naproxen dose may be increased up to 1500 mg/day for a limited time.</li>
         <li>Treatment may be continued for up to <strong>6 months</strong> in patients requiring higher levels of anti-inflammatory/analgesic activity.</li>
       </ul>
 
@@ -336,8 +343,6 @@ const modules = [
       </ul>
 
       <h3>Clinical evidence</h3>
-      <figure><img src="assets/img/esso-ns-studies.jpg" alt="Esso-NS studies: gastric ulcer incidence 9% vs 50% and 15% vs 51%; 63% patient satisfaction" loading="lazy">
-      <figcaption>Gastric ulcer incidence and patient satisfaction with Esso-NS</figcaption></figure>
       <ul>
         <li>NSAIDs used alone: prevalence of <strong>14%–25%</strong> gastric and duodenal ulcers in users.</li>
         <li>Naproxen 500 mg + esomeprazole 20 mg b.i.d. vs enteric-coated naproxen 500 mg b.i.d. — incidence of gastric ulcer
@@ -353,14 +358,22 @@ const modules = [
       </ul>
       <p>Standard NSAID precautions apply — GI, renal and cardiovascular risk with long-term use. Avoid combining with other NSAIDs or blood thinners without close monitoring.</p>
 
-      <h3>Esso-NS advantages (key detailing messages)</h3>
+      <h3>No. 1 Brand in Quality, Branding &amp; Growth (current literature)</h3>
+      <table>
+        <tr><th>No. 1 in Quality</th><th>No. 1 in Branding</th><th>No. 1 in Growth</th></tr>
+        <tr>
+          <td>Unmatched coating · Rapid absorption · Complete dosage · Easy to swallow</td>
+          <td><strong>Best launch of 2024</strong> (IQVIA MAT-12/2024) · Best availability · Best scientific campaigns — the No. 1 most trusted brand</td>
+          <td><strong>Highest growth vs competitors</strong> · <strong>Doubled the sales volume in one year</strong></td>
+        </tr>
+      </table>
+
+      <h3>Esso-NS offers</h3>
       <ul>
-        <li><strong>Dual-action formula</strong> — effective pain relief <em>and</em> gastrointestinal protection</li>
-        <li>Excellent GI protection and a better, long-term safety profile — <strong>suitable for long-term use</strong></li>
-        <li>Fixed-dose combination: <strong>one tablet replaces the two-pill NSAID + PPI routine</strong> — simplified dosage improves compliance</li>
-        <li>Improved quality of life, leading to increased doctor satisfaction</li>
-        <li>Cost-effective</li>
-        <li><strong>Competitive edge:</strong> where competitors require a separate PPI prescription, Esso-NS has gastroprotection built into the tablet itself.</li>
+        <li><strong>Excellent GI protection</strong></li>
+        <li><strong>Up to 63% improvement in quality of life</strong></li>
+        <li><strong>Better patient compliance</strong> — one tablet replaces the two-pill NSAID + PPI routine</li>
+        <li><strong>FDA approved</strong> combination</li>
       </ul>
     `
   },
@@ -371,8 +384,8 @@ const modules = [
     title: "Mionex Tablet (Moxifloxacin 400 mg)",
     summary: "The once-daily respiratory quinolone — spectrum, mechanism, indications and dosing.",
     body: `
-      <figure><img src="assets/img/mionex-dropcard.jpg" alt="Mionex dropcard with dosage chart and once-daily dose benefit" loading="lazy">
-      <figcaption>Mionex dropcard — "Ultimate Care"</figcaption></figure>
+      <figure><img src="assets/img/khyber-1/mionex.jpg" alt="Mionex literature: Ultimate Care — effective and safe in community-acquired pneumonia, diabetic foot infections and uncomplicated PID; dosage chart; OD dose benefit" loading="lazy">
+      <figcaption>Mionex — "Ultimate Care"</figcaption></figure>
 
       <h3>What is Mionex?</h3>
       <p>Mionex (moxifloxacin hydrochloride) is a synthetic <strong>fluoroquinolone</strong> with a
@@ -424,7 +437,7 @@ const modules = [
 
       <h3>Indications &amp; dosage — 400 mg once daily</h3>
       <table>
-        <tr><th>Infection</th><th>Duration (as per Mionex dropcard)</th></tr>
+        <tr><th>Infection</th><th>Duration (as per Mionex literature)</th></tr>
         <tr><td>Community-acquired pneumonia (CAP)</td><td>7–14 days</td></tr>
         <tr><td>Acute exacerbation of chronic bronchitis (AECB)</td><td>5 days</td></tr>
         <tr><td>Acute bacterial sinusitis</td><td>10 days</td></tr>
@@ -450,8 +463,13 @@ const modules = [
     title: "Pegalin-CR (Pregabalin Controlled Release)",
     summary: "Neuropathic pain, pregabalin's mechanism, and why once-daily CR matters.",
     body: `
-      <figure><img src="assets/img/pegalin-cr-dropcard.jpg" alt="Pegalin CR dropcard: extended release 82.5, 165 and 330 mg; once daily dosing, efficacy and safety, cost-effective" loading="lazy">
+      <figure><img src="assets/img/khyber-1/pegalin-cr.jpg" alt="Pegalin CR literature: Challenge Resolved — once daily dosing, efficacy and safety, cost-effective; 82.5, 165 and 330 mg" loading="lazy">
       <figcaption>Pegalin-CR — "Challenge Resolved"</figcaption></figure>
+
+      <h3>The challenge</h3>
+      <p>Conventional (immediate-release) pregabalin must be taken two or more times a day and often causes
+      <strong>dizziness, sleepiness, fatigue and muscle tenderness</strong>. The Pegalin-CR literature shows these as the pieces
+      of the puzzle that Pegalin-CR resolves — hence <em>"Challenge Resolved."</em></p>
 
       <h3>The nervous system — essentials</h3>
       <p>Humans have two complementary control systems: the <strong>nervous system</strong> (releases
@@ -529,10 +547,12 @@ const modules = [
   {
     id: "m8",
     title: "Tepride Tablet (Itopride HCl 50 mg)",
-    summary: "The cardiac-safe dual-action prokinetic for functional dyspepsia.",
+    summary: "The Pride of Nation — the cardiac-safe dual-action prokinetic for functional dyspepsia.",
     body: `
-      <figure><img src="assets/img/tepride-dropcard.jpg" alt="Tepride dropcard: functional dyspepsia 70% in FGID patients in Pakistan, cardiac safety, 1 tablet three times a day" loading="lazy">
-      <figcaption>Tepride dropcard — "Happy Tummy"</figcaption></figure>
+      <figure><img src="assets/img/khyber-1/tepride.jpg" alt="Tepride literature: The Pride of Nation — up to 80% of functional dyspepsia accompanied by postprandial pain or discomfort; good efficacy in postprandial fullness and early satiety; cardiac safety; 1 tablet three times a day, 30 minutes before meal" loading="lazy">
+      <figcaption>Tepride — "The Pride of Nation"</figcaption></figure>
+      <p><strong>Theme:</strong> <em>"The Pride of Nation"</em> — the literature links Tepride to a source of national pride:
+      Sialkot, Pakistan, producing all the official balls for the FIFA World Cup 2026.</p>
 
       <h3>Prokinetics</h3>
       <p>Gastroprokinetics <strong>enhance gastrointestinal motility</strong> by increasing the frequency or strength of
@@ -540,8 +560,8 @@ const modules = [
       serotonergic or cholinergic agents.</p>
 
       <h3>Functional dyspepsia — the opportunity</h3>
-      <p>In Pakistan, a hospital-based study using the Rome III questionnaire found functional dyspepsia in
-      <strong>70% of patients with functional GI disorders (FGIDs)</strong>.</p>
+      <p>Functional dyspepsia is <strong>up to 80% accompanied by postprandial (after-meal) pain or discomfort</strong>
+      (American Family Physician, 2020) — exactly the symptoms Tepride treats.</p>
 
       <h3>Dual mechanism of action</h3>
       <ol>
@@ -567,8 +587,7 @@ const modules = [
       <p>Functional dyspepsia, GERD, nausea &amp; vomiting, sensation of bloating, early satiety, anorexia and gastroparesis.</p>
 
       <h3>Dosage</h3>
-      <p><strong>1 tablet (50 mg) three times a day</strong> on an empty stomach, before meals (the Tepride dropcard states
-      30 minutes before a meal). Pack: 1 × 10 tablets.</p>
+      <p><strong>1 tablet (50 mg) three times a day, 30 minutes before meals.</strong> Pack: 1 × 10 tablets.</p>
 
       <h3>Special populations &amp; safety</h3>
       <ul>
@@ -589,7 +608,7 @@ const modules = [
         <tr><td>Key side effects</td><td>Mild: dizziness, headache, diarrhoea, constipation</td><td>Tardive dyskinesia, parkinsonism, extrapyramidal effects; cardiac (QT) risk</td><td>Amenorrhoea, gynaecomastia, galactorrhoea, libido change, hypotension, sedation</td><td>Angioedema, gynaecomastia, hyperprolactinaemia, sedation, extrapyramidal spasm</td></tr>
       </table>
 
-      <h3>Tepride key detailing messages</h3>
+      <h3>Tepride key detailing messages (current literature)</h3>
       <ul>
         <li>Good efficacy for <strong>postprandial fullness and early satiety</strong> in functional dyspepsia</li>
         <li><strong>Enhances gastric motility</strong>; effective treatment for functional dyspepsia</li>
@@ -715,8 +734,8 @@ const questions = [
     options: ["It lowers blood pressure", "No abnormal effect on the QT interval", "It slows heart rate", "It is a beta-blocker"], answer: 1 },
   { module: "m8", q: "What is the Tepride dosage?",
     options: ["50 mg once daily at bedtime", "1 tablet (50 mg) three times a day before meals", "100 mg twice daily after meals", "As needed only"], answer: 1 },
-  { module: "m8", q: "In Pakistan, functional dyspepsia was found in what share of FGID patients?",
-    options: ["10%", "35%", "70%", "95%"], answer: 2 },
+  { module: "m8", q: "Functional dyspepsia is accompanied by postprandial pain or discomfort in up to…",
+    options: ["10%", "35%", "80%", "100%"], answer: 2 },
   { module: "m8", q: "Which competitor is metabolised by CYP3A4 and carries extrapyramidal side effects?",
     options: ["Esomeprazole", "Domperidone", "Moxifloxacin", "Pregabalin"], answer: 1 },
   { module: "m8", q: "Safety of Tepride has not been established in children under…",
@@ -730,9 +749,11 @@ const questions = [
   { module: "m1", q: "Which Khyber-1 brand is an NSAID + PPI fixed-dose combination?",
     options: ["Esso 40", "Esso-NS", "Tepride", "Mionex"], answer: 1 },
   { module: "m1", q: "What is Mionex's tagline?",
-    options: ["Happy Tummy", "Challenge Resolved", "Ultimate Care", "Healthy Life, Healthy Stomach"], answer: 2 },
-  { module: "m1", q: "What is Tepride's tagline?",
-    options: ["Happy Tummy", "Ultimate Care", "Healthy Stomach", "Challenge Resolved"], answer: 0 },
+    options: ["The Pride of Nation", "Challenge Resolved", "Ultimate Care", "Healthy Life, Healthy Stomach"], answer: 2 },
+  { module: "m1", q: "What is Tepride's current theme?",
+    options: ["The Pride of Nation", "Ultimate Care", "Healthy Life, Healthy Stomach", "Challenge Resolved"], answer: 0 },
+  { module: "m1", q: "What is Esso-NS's current theme?",
+    options: ["ONE + ONE = No. 1", "Ultimate Care", "Challenge Resolved", "The Pride of Nation"], answer: 0 },
   { module: "m1", q: "Pegalin-CR belongs to which therapy area?",
     options: ["Acid control", "Neuropathic pain", "Respiratory infections", "Gut motility"], answer: 1 },
   { module: "m1", q: "Which two Khyber-1 brands serve the stomach-complaint patient — one controls acid, the other restores motility?",
@@ -862,7 +883,24 @@ const questions = [
   { module: "m8", q: "Cinitapride acts mainly on which receptors?",
     options: ["Serotonin (5-HT1, 5-HT4 agonist; 5-HT2 antagonist)", "Proton pump", "α2δ calcium channel", "COX-1"], answer: 0 },
   { module: "m8", q: "Should Tepride be used during pregnancy?",
-    options: ["Yes, it is first choice", "No — no adequate studies, so it should not be used", "Only in the 3rd trimester", "Only at double dose"], answer: 1 }
+    options: ["Yes, it is first choice", "No — no adequate studies, so it should not be used", "Only in the 3rd trimester", "Only at double dose"], answer: 1 },
+  /* ---- updated literature (Oct-26) */
+  { module: "m5", q: "What is the Esso-NS dose in the current literature?",
+    options: ["1 tablet twice daily", "1 tablet once weekly", "2 tablets three times daily", "As needed only"], answer: 0 },
+  { module: "m5", q: "Esso-NS claims to be the No. 1 brand in…",
+    options: ["Quality, Branding & Growth", "Price, Packaging & Taste", "Antibiotic resistance", "Injection quality"], answer: 0 },
+  { module: "m5", q: "According to IQVIA (MAT-12/2024), Esso-NS was…",
+    options: ["The best launch of 2024", "Withdrawn in 2024", "Only available in hospitals", "A generic of diclofenac"], answer: 0 },
+  { module: "m5", q: "Esso-NS offers up to what improvement in quality of life?",
+    options: ["13%", "33%", "63%", "93%"], answer: 2 },
+  { module: "m5", q: "Which is one of Esso-NS's \"No. 1 in Growth\" claims?",
+    options: ["Doubled the sales volume in one year", "Lowest price in the market", "Once-weekly dosing", "Contains an antibiotic"], answer: 0 },
+  { module: "m4", q: "What packaging does the current Esso 40 literature highlight?",
+    options: ["Triple-layer, tamper-proof packaging", "Glass bottle", "Paper sachet", "Single loose strip"], answer: 0 },
+  { module: "m4", q: "Which three claims appear for Esso 40 on the current literature?",
+    options: ["Strong & prolonged acid control in APDs; faster healing in GERD; intragastric pH > 4 for longer", "Relieves spasm; normalises motility; no anticholinergic effects", "Once-daily nerve-pain control; fewer side effects; cost-effective", "Cartilage regeneration; halal source; No. 1 formula"], answer: 0 },
+  { module: "m8", q: "What is the Tepride dosage on the current literature?",
+    options: ["1 tablet three times a day, 30 minutes before meals", "1 tablet once daily at bedtime", "2 tablets after meals", "1 tablet once weekly"], answer: 0 }
 ];
 
 window.K1Content.register("Khyber-1", { modules, questions });
