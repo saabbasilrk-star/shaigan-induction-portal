@@ -2,7 +2,7 @@
 
 An online induction programme for newly appointed managers of **Shaigan Pharmaceuticals**. Each manager studies the modules of **their own team**, one module at a time, with quizzes and a final assessment. An **admin portal** shows every manager's progress live, across all teams.
 
-**Teams:** Khyber-1, Khyber-2, Khyber-3, Derma-1, Derma-2, Derma-3, Femicare-1, Femicare-2, Medix, Elantis and Optix. **Khyber-1 and Elantis have content so far.** Managers of the other teams can register now, and they see a "modules are being prepared" page until their team's content is added.
+**Teams:** Khyber-1, Khyber-2, Khyber-3, Derma-1, Derma-2, Derma-3, Femicare-1, Femicare-2, Medix, Elantis and Optix. **Khyber-1, Khyber-2 and Elantis have content so far.** Managers of the other teams can register now, and they see a "modules are being prepared" page until their team's content is added.
 
 - **Manager portal**: `index.html`
 - **Admin portal**: `admin.html` (linked in the manager portal's footer)
@@ -97,6 +97,21 @@ If you want to reuse the existing `johari-workshop` Firebase project, you can, b
 4. Update `contentVersion` in `js/content.js`, then commit and push. Derma-1 managers will see their modules at their next sign-in.
 
 Module ids (`m1`, `m2`, …) are saved in managers' progress, so don't rename a team's ids once managers have started.
+
+### Khyber-2 content
+
+Built from `Induction Training Product Presentations\Khyber - 2`. Themes, slogans and claims follow the current `Literatures` folder only; old deck and detailing-literature slogans are not used. 8 modules, 88 questions (10–12 per module):
+
+| # | Module |
+|---|---|
+| 1 | Welcome & the Khyber-2 portfolio |
+| 2 | Science: joints, arthritis & NSAIDs |
+| 3 | Science: stomach acid & PPIs |
+| 4 | Mits / Mits DS (meloxicam 7.5/15 mg), "Get Set Go" |
+| 5 | Jovit (glucosamine 500 + chondroitin 400 mg), "Number 1 Formula, For Joint Vitality" |
+| 6 | Pegalin-CR (pregabalin ER), "Challenge Resolved" |
+| 7 | Esso-20 (esomeprazole 20 mg), "Healthy Life, Healthy Stomach", Pioneer in Pelletization |
+| 8 | Zeespa (mebeverine 135 mg), "Make Life eZee" |
 
 ### Elantis content (Cardiometabolic Division)
 
