@@ -2,7 +2,7 @@
 
 An online induction programme for newly appointed managers of **Shaigan Pharmaceuticals**. Each manager studies the modules of **their own team**, one module at a time, with quizzes and a final assessment. An **admin portal** shows every manager's progress live, across all teams.
 
-**Teams:** Khyber-1, Khyber-2, Khyber-3, Derma-1, Derma-2, Derma-3, Femicare-1, Femicare-2, Medix, Elantis and Optix. **Khyber-1, Khyber-2, Medix and Elantis have content so far.** Managers of the other teams can register now, and they see a "modules are being prepared" page until their team's content is added.
+**Teams:** Khyber-1, Khyber-2, Khyber-3, Derma-1, Derma-2, Derma-3, Femicare-1, Femicare-2, Medix, Elantis and Optix. **Khyber-1, Khyber-2, Khyber-3, Medix and Elantis have content so far.** Managers of the other teams can register now, and they see a "modules are being prepared" page until their team's content is added.
 
 - **Manager portal**: `index.html`
 - **Admin portal**: `admin.html` (linked in the manager portal's footer)
@@ -112,6 +112,21 @@ Built from `Induction Training Product Presentations\Khyber - 2`. Themes, slogan
 | 6 | Pegalin-CR (pregabalin ER), "Challenge Resolved" |
 | 7 | Esso-20 (esomeprazole 20 mg), "Healthy Life, Healthy Stomach", Pioneer in Pelletization |
 | 8 | Zeespa (mebeverine 135 mg), "Make Life eZee" |
+
+### Khyber-3 content
+
+Built from `Induction Training Product Presentations\Khyber - 3`. Themes, slogans and claims follow the current literature in its `Detailing Literatures` folder (Co-Benz drop card Q1-2023, Pepzym DC 2024, Vonopran literature). 8 modules, 104 questions (11–15 per module):
+
+| # | Module |
+|---|---|
+| 1 | Welcome & the Khyber-3 portfolio |
+| 2 | Science: pain, analgesics & the WHO ladder |
+| 3 | Co-Benz (tramadol 37.5 mg + paracetamol 325 mg), "COmfort beyond BENdZ" |
+| 4 | Science: the digestive system |
+| 5 | Pepzym (5-ingredient Repetab tablet), "abcD: All Balanced Constituents for Digestive system" |
+| 6 | Science: acid-related diseases & the proton pump |
+| 7 | Vonopran 10 / 20 (vonoprazan, P-CAB), "Relief you can TRUST" |
+| 8 | Vonopran clinical evidence |
 
 ### Medix content
 
