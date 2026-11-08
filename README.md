@@ -2,7 +2,7 @@
 
 An online induction programme for newly appointed managers of **Shaigan Pharmaceuticals**. Each manager studies the modules of **their own team**, one module at a time, with quizzes and a final assessment. An **admin portal** shows every manager's progress live, across all teams.
 
-**Teams:** Khyber-1, Khyber-2, Khyber-3, Derma-1, Derma-2, Derma-3, Femicare-1, Femicare-2, Medix, Elantis and Optix. **Khyber-1, Khyber-2 and Elantis have content so far.** Managers of the other teams can register now, and they see a "modules are being prepared" page until their team's content is added.
+**Teams:** Khyber-1, Khyber-2, Khyber-3, Derma-1, Derma-2, Derma-3, Femicare-1, Femicare-2, Medix, Elantis and Optix. **Khyber-1, Khyber-2, Medix and Elantis have content so far.** Managers of the other teams can register now, and they see a "modules are being prepared" page until their team's content is added.
 
 - **Manager portal**: `index.html`
 - **Admin portal**: `admin.html` (linked in the manager portal's footer)
@@ -112,6 +112,20 @@ Built from `Induction Training Product Presentations\Khyber - 2`. Themes, slogan
 | 6 | Pegalin-CR (pregabalin ER), "Challenge Resolved" |
 | 7 | Esso-20 (esomeprazole 20 mg), "Healthy Life, Healthy Stomach", Pioneer in Pelletization |
 | 8 | Zeespa (mebeverine 135 mg), "Make Life eZee" |
+
+### Medix content
+
+Built from `Induction Training Product Presentations\Medix`. Themes, slogans and claims follow the latest literature available in `Literatures` (Artho Q1-2023, Famot "Gold Standard", Pegalin Q1-2023). 7 modules, 79 questions (10–14 per module):
+
+| # | Module |
+|---|---|
+| 1 | Welcome & the Medix portfolio |
+| 2 | Science: pain, prostaglandins & NSAIDs |
+| 3 | Science: digestive system & stomach acid |
+| 4 | Artho 50 / Artho Plus (diclofenac + misoprostol), "Relief with Innovation" |
+| 5 | Famot (famotidine, oral & I.V.), "The Gold Standard" |
+| 6 | Pegalin (pregabalin 50–300 mg), "Treat Deep" |
+| 7 | Laxa-P (prunus juice extract syrup), natural laxative |
 
 ### Elantis content (Cardiometabolic Division)
 

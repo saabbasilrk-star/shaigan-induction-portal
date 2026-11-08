@@ -17,7 +17,7 @@ window.CONFIG = {
   shortTitle: "Managerial Induction",
   companyName: "Shaigan Pharmaceuticals (Pvt.) Limited",
   // Change this whenever team content files are updated, so browsers fetch the new version.
-  contentVersion: "2026-10-22",
+  contentVersion: "2026-11-08",
 
   teams: [
     { name: "Khyber-1", content: "js/teams/khyber-1.js" },
@@ -28,7 +28,7 @@ window.CONFIG = {
     { name: "Derma-3" },
     { name: "Femicare-1" },
     { name: "Femicare-2" },
-    { name: "Medix" },
+    { name: "Medix", content: "js/teams/medix.js" },
     { name: "Elantis", content: "js/teams/elantis.js" },
     { name: "Optix" }
   ],
